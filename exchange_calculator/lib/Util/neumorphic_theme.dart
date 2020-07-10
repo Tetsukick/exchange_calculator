@@ -35,6 +35,7 @@ final lightNeumorphicTheme = NeumorphicTheme(
 
 final kBackgroundColour = Color.fromRGBO(239, 238, 238, 1);
 final kOrange = Color.fromRGBO(238, 134, 48, 1); // rgb(238, 134, 48)
+final kRed = Color.fromRGBO(255, 50, 0, 1); // rgb(238, 134, 48)
 final kDarkShadow = Color.fromRGBO(216, 213, 208, 1); // rgb(216, 213, 208)
 final kDarkBackgroundColour = Color.fromRGBO(38, 38, 38, 1); // rgb(38,38,38)
 final kDarkBackgroundShadowColour = Color.fromRGBO(

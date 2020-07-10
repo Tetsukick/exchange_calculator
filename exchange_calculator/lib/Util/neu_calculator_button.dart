@@ -38,6 +38,7 @@ class _NeuCalculatorButtonState extends State<NeuCalculatorButton> {
   }
 
   void _onPointerDown(PointerDownEvent event) {
+    if (widget.onPressed == null) { return; }
     setState(() => _isPressed = true);
     widget.onPressed();
   }
@@ -51,7 +52,7 @@ class _NeuCalculatorButtonState extends State<NeuCalculatorButton> {
     final neumorphicTheme = Provider.of<NeumorphicTheme>(context);
     final width = MediaQuery.of(context).size.width;
     final squareSideLength = width / 5;
-    final buttonWidth = squareSideLength * (widget.isPill ? 2.2 : 1);
+    final buttonWidth = squareSideLength * (widget.isPill ? 3.3 : 1);
     final buttonSize = Size(buttonWidth, squareSideLength);
 
     final innerShadow = ConcaveDecoration(
@@ -83,7 +84,7 @@ class _NeuCalculatorButtonState extends State<NeuCalculatorButton> {
               decoration: _isPressed ? innerShadow : outerShadow,
             ),
             Align(
-              alignment: Alignment(widget.isPill ? -0.6 : 0, 0),
+              alignment: Alignment(widget.isPill ? 0.8 : 0, 0),
               child: Text(
                 widget.text,
                 style: GoogleFonts.montserrat(

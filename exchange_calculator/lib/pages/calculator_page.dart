@@ -16,33 +16,17 @@ class CalculatorPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Spacer(),
-            Text(
-              calculator.value.toString(),
-              style: GoogleFonts.montserrat(
-                fontSize: 100,
-                fontWeight: FontWeight.w200,
-              ),
-            ),
             Expanded(child: SizedBox(height: 150)),
             ButtonRow(children: [
               NeuCalculatorButton(
+                text: calculator.value.toString(),
+                onPressed: null,
+                isPill: true,
+              ),
+              NeuCalculatorButton(
                 text: 'AC',
+                textColor: kRed,
                 onPressed: calculator.reset,
-              ),
-              NeuCalculatorButton(
-                text: '+/-',
-                onPressed: () {},
-              ),
-              NeuCalculatorButton(
-                text: '%',
-                onPressed: () {},
-              ),
-              NeuCalculatorButton(
-                text: '÷',
-                textColor: kOrange,
-                textSize: 45,
-                onPressed: calculator.divide,
-                isChosen: calculator.currentVariable is CalculatorDivide,
               ),
             ]),
             ButtonRow(
@@ -60,10 +44,11 @@ class CalculatorPage extends StatelessWidget {
                   onPressed: () => calculator.setValue(9),
                 ),
                 NeuCalculatorButton(
-                  text: 'x',
+                  text: '÷',
                   textColor: kOrange,
-                  onPressed: calculator.multiply,
-                  isChosen: calculator.currentVariable is CalculatorMultiply,
+                  textSize: 45,
+                  onPressed: calculator.divide,
+                  isChosen: calculator.currentVariable is CalculatorDivide,
                 ),
               ],
             ),
@@ -82,11 +67,10 @@ class CalculatorPage extends StatelessWidget {
                   onPressed: () => calculator.setValue(6),
                 ),
                 NeuCalculatorButton(
-                  text: '-',
+                  text: 'x',
                   textColor: kOrange,
-                  textSize: 50,
-                  onPressed: calculator.deduct,
-                  isChosen: calculator.currentVariable is CalculatorDeduct,
+                  onPressed: calculator.multiply,
+                  isChosen: calculator.currentVariable is CalculatorMultiply,
                 ),
               ],
             ),
@@ -105,11 +89,11 @@ class CalculatorPage extends StatelessWidget {
                   onPressed: () => calculator.setValue(3),
                 ),
                 NeuCalculatorButton(
-                  text: '+',
+                  text: '-',
                   textColor: kOrange,
-                  textSize: 45,
-                  onPressed: calculator.add,
-                  isChosen: calculator.currentVariable is CalculatorAdd,
+                  textSize: 50,
+                  onPressed: calculator.deduct,
+                  isChosen: calculator.currentVariable is CalculatorDeduct,
                 ),
               ],
             ),
@@ -118,7 +102,6 @@ class CalculatorPage extends StatelessWidget {
                 NeuCalculatorButton(
                   text: '0',
                   onPressed: () => calculator.setValue(0),
-                  isPill: true,
                 ),
                 NeuCalculatorButton(
                   text: '.',
@@ -129,6 +112,13 @@ class CalculatorPage extends StatelessWidget {
                   textColor: kOrange,
                   textSize: 45,
                   onPressed: calculator.showResult,
+                ),
+                NeuCalculatorButton(
+                  text: '+',
+                  textColor: kOrange,
+                  textSize: 45,
+                  onPressed: calculator.add,
+                  isChosen: calculator.currentVariable is CalculatorAdd,
                 ),
               ],
             ),
