@@ -16,6 +16,20 @@ class CalculatorPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Spacer(),
+            ButtonRow(children: [
+              NeuCalculatorButton(
+                text: calculator.value.toString(),
+                onPressed: null,
+                isPill: true,
+              ),
+            ]),
+            ButtonRow(children: [
+              NeuCalculatorButton(
+                text: calculator.value.toString(),
+                onPressed: null,
+                isPill: true,
+              ),
+            ]),
             Expanded(child: SizedBox(height: 150)),
             ButtonRow(children: [
               NeuCalculatorButton(
