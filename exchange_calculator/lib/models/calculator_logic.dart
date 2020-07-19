@@ -1,3 +1,4 @@
+import 'package:exchangecalculator/Util/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
 
@@ -127,7 +128,7 @@ num parseCalculatorActions(List<CalculatorVariable> actions) {
     ContextModel(),
   );
 
-  print('$equation = $result');
+  logger.info('$equation = $result');
 
   final prettierResult = isInteger(result) ? result.round() : result;
 
