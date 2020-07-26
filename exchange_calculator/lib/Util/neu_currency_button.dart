@@ -100,7 +100,7 @@ class _NeuCurrencyButtonState extends State<NeuCurrencyButton> {
                     widget.currency.unit,
                     style: GoogleFonts.montserrat(
                       fontSize: widget.textSize ?? 16,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       color: widget.textColor ??
                           Theme.of(context).textTheme.bodyText1.color,
                     ),
