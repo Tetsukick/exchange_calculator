@@ -1,4 +1,5 @@
 import 'package:exchangecalculator/Util/logger.dart';
+import 'package:exchangecalculator/models/currency.dart';
 import 'package:exchangecalculator/models/get_rates_model.dart';
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
@@ -11,7 +12,20 @@ class Calculator extends ChangeNotifier {
   CalculatorVariable get currentVariable => _actions.last;
 
   Rates _rates;
-  String _base = 'JPN';
+  Currency _baseCurrency = Currency.JPY;
+  Currency _targetCurrency = Currency.USD;
+  Currency get baseCurrency => _baseCurrency;
+  Currency get targetCurrency => _targetCurrency;
+
+  void changeBaseCurrency(Currency currency) {
+    _baseCurrency = currency;
+    notifyListeners();
+  }
+
+  void changeTargetCurrency(Currency currency) {
+    _targetCurrency = currency;
+    notifyListeners();
+  }
 
   void add() {
     takeAction(

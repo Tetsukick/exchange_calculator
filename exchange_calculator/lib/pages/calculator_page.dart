@@ -1,3 +1,4 @@
+import 'package:exchangecalculator/Util/currency_dialog.dart';
 import 'package:exchangecalculator/Util/neu_currency_button.dart';
 import 'package:exchangecalculator/models/currency.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +21,15 @@ class CalculatorPage extends StatelessWidget {
             Spacer(),
             ButtonRow(children: [
               NeuCurrencyButton(
-                currency: Currency.JPY,
-                onPressed: null,
+                currency: calculator.baseCurrency,
+                onPressed: () {
+                  CurrencyDialog().showCurrencyDialog(context)
+                      .then((currency) {
+                        if (currency != null) {
+                          calculator.changeBaseCurrency(currency);
+                        }
+                  });
+                },
               ),
               NeuCalculatorButton(
                 text: calculator.value.toString(),
@@ -31,8 +39,15 @@ class CalculatorPage extends StatelessWidget {
             ]),
             ButtonRow(children: [
               NeuCurrencyButton(
-                currency: Currency.USD,
-                onPressed: null,
+                currency: calculator.targetCurrency,
+                onPressed: () {
+                  CurrencyDialog().showCurrencyDialog(context)
+                      .then((currency) {
+                    if (currency != null) {
+                      calculator.changeTargetCurrency(currency);
+                    }
+                  });
+                },
               ),
               NeuCalculatorButton(
                 text: calculator.value.toString(),
