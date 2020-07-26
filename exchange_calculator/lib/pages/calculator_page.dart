@@ -12,6 +12,7 @@ class CalculatorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final calculator = Provider.of<Calculator>(context);
+    calculator.setInitialRates(calculator.baseCurrency);
     return Material(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),

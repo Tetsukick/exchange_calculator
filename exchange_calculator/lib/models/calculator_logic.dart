@@ -23,19 +23,29 @@ class Calculator extends ChangeNotifier {
   void changeBaseCurrency(Currency currency) async {
     _baseCurrency = currency;
 
-    await APIRequest<Map<String, dynamic>>().request(
+    await getRates(currency).then((rates) => _rates = rates);
+    _targetValue = _value * _rates.ratesFromCurrency(_targetCurrency);
+
+    notifyListeners();
+  }
+
+  void setInitialRates(Currency currency) {
+    getRates(currency).then((rates) => _rates = rates);
+  }
+
+  Future<Rates> getRates(Currency currency) {
+    return APIRequest<Map<String, dynamic>>().request(
         type: API.getRate,
         params: {
           "base": currency.unit,
         })
         .then((response) {
           if (response.status == Status.completed) {
-            _rates = GetRatesResult.fromJson(response.data).rates;
-            _targetValue = _value * _rates.ratesFromCurrency(_targetCurrency);
+            return GetRatesResult.fromJson(response.data).rates;
+          } else {
+            return null;
           }
     });
-
-    notifyListeners();
   }
 
   void changeTargetCurrency(Currency currency) {
