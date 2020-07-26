@@ -1,3 +1,5 @@
+import 'package:exchangecalculator/Util/neu_currency_button.dart';
+import 'package:exchangecalculator/models/currency.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:exchangecalculator/models/calculator_logic.dart';
@@ -17,6 +19,10 @@ class CalculatorPage extends StatelessWidget {
           children: [
             Spacer(),
             ButtonRow(children: [
+              NeuCurrencyButton(
+                currency: Currency.JPY,
+                onPressed: null,
+              ),
               NeuCalculatorButton(
                 text: calculator.value.toString(),
                 onPressed: null,
@@ -24,6 +30,10 @@ class CalculatorPage extends StatelessWidget {
               ),
             ]),
             ButtonRow(children: [
+              NeuCurrencyButton(
+                currency: Currency.USD,
+                onPressed: null,
+              ),
               NeuCalculatorButton(
                 text: calculator.value.toString(),
                 onPressed: null,
@@ -152,7 +162,7 @@ class ButtonRow extends StatelessWidget {
     @required this.children,
   }) : super(key: key);
 
-  final List<NeuCalculatorButton> children;
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
