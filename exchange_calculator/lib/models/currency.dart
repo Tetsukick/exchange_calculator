@@ -180,71 +180,71 @@ extension CurrencyModel on Currency {
   String get assetPath {
     switch(this) {
       case Currency.AUD:
-        return '';
+        return 'assets/national_flag/australia.svg';
       case Currency.BGN:
-        return 'Bulgarian lev';
+        return 'assets/national_flag/bulgaria.svg';
       case Currency.BRL:
-        return 'Brazilian real';
+        return 'assets/national_flag/brazil.svg';
       case Currency.CAD:
-        return 'Canadian dollar';
+        return 'assets/national_flag/canada.svg';
       case Currency.CHF:
-        return 'Swiss franc';
+        return 'assets/national_flag/swiss.svg';
       case Currency.CNY:
-        return 'Chinese yuan renminbi';
+        return 'assets/national_flag/china.svg';
       case Currency.CZK:
-        return 'Czech koruna';
+        return 'assets/national_flag/czechRepublic.svg';
       case Currency.DKK:
-        return 'Danish krone';
+        return 'assets/national_flag/denmark.svg';
       case Currency.EUR:
-        return 'euro';
+        return 'assets/national_flag/eu.svg';
       case Currency.GBP:
-        return 'Pound sterling';
+        return 'assets/national_flag/uk.svg';
       case Currency.HKD:
-        return 'Hong Kong dollar';
+        return 'assets/national_flag/hongKong.svg';
       case Currency.HRK:
-        return 'Croatian kuna';
+        return 'assets/national_flag/croatia.svg';
       case Currency.HUF:
-        return 'Hungarian forint';
+        return 'assets/national_flag/hungary.svg';
       case Currency.IDR:
-        return 'Indonesian rupiah';
+        return 'assets/national_flag/indonesia.svg';
       case Currency.ILS:
-        return 'Israeli shekel';
+        return 'assets/national_flag/israel.svg';
       case Currency.INR:
-        return 'Indian rupee';
+        return 'assets/national_flag/india.svg';
       case Currency.ISK:
-        return 'Icelandic krona';
+        return 'assets/national_flag/iceland.svg';
       case Currency.JPY:
         return 'assets/national_flag/japan.svg';
       case Currency.KRW:
-        return 'South Korean won';
+        return 'assets/national_flag/southKorea.svg';
       case Currency.MXN:
-        return 'Mexican peso';
+        return 'assets/national_flag/mexico.svg';
       case Currency.MYR:
-        return 'Malaysian ringgit';
+        return 'assets/national_flag/malaysia.svg';
       case Currency.NOK:
-        return 'Norwegian krone';
+        return 'assets/national_flag/norway.svg';
       case Currency.NZD:
-        return 'New Zealand dollar';
+        return 'assets/national_flag/newZealand.svg';
       case Currency.PHP:
-        return 'Philippine peso';
+        return 'assets/national_flag/philippine.svg';
       case Currency.PLN:
-        return 'Polish zloty';
+        return 'assets/national_flag/poland.svg';
       case Currency.RON:
-        return 'Romanian leu';
+        return 'assets/national_flag/romania.svg';
       case Currency.RUB:
-        return 'Russian rouble';
+        return 'assets/national_flag/russia.svg';
       case Currency.SEK:
-        return 'Swedish krona';
+        return 'assets/national_flag/sweden.svg';
       case Currency.SGD:
-        return 'Singapore dollar';
+        return 'assets/national_flag/singapore.svg';
       case Currency.THB:
-        return 'Thai baht';
+        return 'assets/national_flag/thailand.svg';
       case Currency.TRY:
-        return 'Turkish lira';
+        return 'assets/national_flag/turkey.svg';
       case Currency.USD:
         return 'assets/national_flag/usa.svg';
       case Currency.ZAR:
-        return 'South African rand';
+        return 'assets/national_flag/southAfrica.svg';
     }
   }
 }
