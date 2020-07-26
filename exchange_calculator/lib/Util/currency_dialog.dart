@@ -26,11 +26,20 @@ class CurrencyDialog {
           Navigator.pop(context, element);
         },
         child: ListTile(
-          leading: CircleAvatar(
-            backgroundColor: Colors.white,
+          leading:
+          Container(
+            height: 30,
+            width: 50,
+            decoration: new BoxDecoration(
+                borderRadius: BorderRadius.circular(48),
+                boxShadow: [new BoxShadow(
+                    color: Colors.black38,
+                    blurRadius: 20
+                )]
+            ),
             child: SvgPicture.asset(
               element.assetPath,
-              fit: BoxFit.contain,
+              fit: BoxFit.fitHeight,
             ),
           ),
           title: Text(
