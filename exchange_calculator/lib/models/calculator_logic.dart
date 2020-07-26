@@ -1,4 +1,5 @@
 import 'package:exchangecalculator/Util/logger.dart';
+import 'package:exchangecalculator/models/API/api.dart';
 import 'package:exchangecalculator/models/currency.dart';
 import 'package:exchangecalculator/models/get_rates_model.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,24 @@ class Calculator extends ChangeNotifier {
   Currency _targetCurrency = Currency.USD;
   Currency get baseCurrency => _baseCurrency;
   Currency get targetCurrency => _targetCurrency;
+  num _targetValue = 0;
+  num get targetValue => _targetValue;
 
-  void changeBaseCurrency(Currency currency) {
+  void changeBaseCurrency(Currency currency) async {
     _baseCurrency = currency;
+
+    await APIRequest<Map<String, dynamic>>().request(
+        type: API.getRate,
+        params: {
+          "base": currency.unit,
+        })
+        .then((response) {
+          if (response.status == Status.completed) {
+            _rates = GetRatesResult.fromJson(response.data).rates;
+            _targetValue = _value * _rates.ratesFromCurrency(_targetCurrency);
+          }
+    });
+
     notifyListeners();
   }
 
@@ -73,11 +89,13 @@ class Calculator extends ChangeNotifier {
   void reset() {
     _actions = [CalculatorNumber('0')];
     _value = 0;
+    _targetValue = 0;
     notifyListeners();
   }
 
   void showResult() {
     _value = parseCalculatorActions(_actions);
+    _targetValue = _value * _rates.ratesFromCurrency(_targetCurrency);
     notifyListeners();
   }
 
@@ -90,6 +108,7 @@ class Calculator extends ChangeNotifier {
     } else {
       _value = int.parse(stringifyedValue + number.toString());
     }
+    _targetValue = _value * _rates.ratesFromCurrency(_targetCurrency);
 
     notifyListeners();
 

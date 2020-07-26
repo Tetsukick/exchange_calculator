@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:exchangecalculator/models/currency.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'get_rates_model.g.dart';
@@ -133,4 +134,77 @@ class Rates {
   factory Rates.fromJson(Map<String, dynamic> json) =>
       _$RatesFromJson(json);
   Map<String, dynamic> toJson() => _$RatesToJson(this);
+}
+
+extension RatesFromCurrency on Rates {
+  double ratesFromCurrency(Currency currency) {
+    switch (currency) {
+      case Currency.USD:
+        return this.usd;
+      case Currency.JPY:
+        return this.jpy;
+      case Currency.BGN:
+        return this.bgn;
+      case Currency.CZK:
+        return this.czk;
+      case Currency.DKK:
+        return this.dkk;
+      case Currency.GBP:
+        return this.gbp;
+      case Currency.HUF:
+        return this.huf;
+      case Currency.PLN:
+        return this.pln;
+      case Currency.RON:
+        return this.ron;
+      case Currency.SEK:
+        return this.sek;
+      case Currency.CHF:
+        return this.chf;
+      case Currency.ISK:
+        return this.isk;
+      case Currency.NOK:
+        return this.nok;
+      case Currency.HRK:
+        return this.hrk;
+      case Currency.RUB:
+        return this.rub;
+      case Currency.TRY:
+        return this.TRY;
+      case Currency.AUD:
+        return this.aud;
+      case Currency.BRL:
+        return this.brl;
+      case Currency.CAD:
+        return this.cad;
+      case Currency.CNY:
+        return this.cny;
+      case Currency.HKD:
+        return this.hkd;
+      case Currency.IDR:
+        return this.idr;
+      case Currency.ILS:
+        return this.ils;
+      case Currency.INR:
+        return this.inr;
+      case Currency.KRW:
+        return this.krw;
+      case Currency.MXN:
+        return this.mxn;
+      case Currency.MYR:
+        return this.myr;
+      case Currency.NZD:
+        return this.nzd;
+      case Currency.PHP:
+        return this.php;
+      case Currency.SGD:
+        return this.sgd;
+      case Currency.THB:
+        return this.thb;
+      case Currency.ZAR:
+        return this.zar;
+      case Currency.EUR:
+        return this.eur;
+    }
+  }
 }

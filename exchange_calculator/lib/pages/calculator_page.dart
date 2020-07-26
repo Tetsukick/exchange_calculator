@@ -50,7 +50,7 @@ class CalculatorPage extends StatelessWidget {
                 },
               ),
               NeuCalculatorButton(
-                text: calculator.value.toString(),
+                text: calculator.targetValue.toString(),
                 onPressed: null,
                 isPill: true,
               ),
