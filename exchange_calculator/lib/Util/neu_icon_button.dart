@@ -1,36 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:exchangecalculator/Util/concave_decoration.dart';
 import 'package:exchangecalculator/Util/neumorphic_theme.dart';
 import 'package:provider/provider.dart';
 
-class NeuCalculatorButton extends StatefulWidget {
-  NeuCalculatorButton({
+class NeuIconButton extends StatefulWidget {
+  NeuIconButton({
     Key key,
-    @required this.text,
+    @required this.icon,
     this.textColor,
     this.textSize,
-    this.widthRatio = 1,
+    this.isPill = false,
     @required this.onPressed,
     this.isChosen = false,
   }) : super(key: key);
 
   final bool isChosen;
-  final double widthRatio;
+  final bool isPill;
   final VoidCallback onPressed;
-  final String text;
+  final IconData icon;
   final Color textColor;
   final double textSize;
 
   @override
-  _NeuCalculatorButtonState createState() => _NeuCalculatorButtonState();
+  _NeuIconButtonState createState() => _NeuIconButtonState();
 }
 
-class _NeuCalculatorButtonState extends State<NeuCalculatorButton> {
+class _NeuIconButtonState extends State<NeuIconButton> {
   bool _isPressed = false;
 
   @override
-  void didUpdateWidget(NeuCalculatorButton oldWidget) {
+  void didUpdateWidget(NeuIconButton oldWidget) {
     if (oldWidget.isChosen != widget.isChosen) {
       setState(() => _isPressed = widget.isChosen);
     }
@@ -51,8 +50,8 @@ class _NeuCalculatorButtonState extends State<NeuCalculatorButton> {
   Widget build(BuildContext context) {
     final neumorphicTheme = Provider.of<NeumorphicTheme>(context);
     final width = MediaQuery.of(context).size.width;
-    final squareSideLength = width / 6;
-    final buttonWidth = squareSideLength * widget.widthRatio;
+    final squareSideLength = width / 12;
+    final buttonWidth = squareSideLength * (widget.isPill ? 3.9 : 1);
     final buttonSize = Size(buttonWidth, squareSideLength);
 
     final innerShadow = ConcaveDecoration(
@@ -84,15 +83,10 @@ class _NeuCalculatorButtonState extends State<NeuCalculatorButton> {
               decoration: _isPressed ? innerShadow : outerShadow,
             ),
             Align(
-              alignment: Alignment(widget.widthRatio != 1 ? 0.8 : 0, 0),
-              child: Text(
-                widget.text,
-                style: GoogleFonts.montserrat(
-                  fontSize: widget.textSize ?? 30,
-                  fontWeight: FontWeight.w200,
-                  color: widget.textColor ??
-                      Theme.of(context).textTheme.bodyText1.color,
-                ),
+              alignment: Alignment(widget.isPill ? 0.8 : 0, 0),
+              child: Icon(
+                widget.icon,
+                color: Theme.of(context).textTheme.bodyText1.color,
               ),
             ),
           ],

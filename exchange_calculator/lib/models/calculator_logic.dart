@@ -29,6 +29,14 @@ class Calculator extends ChangeNotifier {
     notifyListeners();
   }
 
+  void switchCurrency() async {
+    final tempBaseCurrency = _baseCurrency;
+    final tempTargetCurrency = _targetCurrency;
+
+    _targetCurrency = tempBaseCurrency;
+    changeBaseCurrency(tempTargetCurrency);
+  }
+
   void setInitialRates(Currency currency) {
     getRates(currency).then((rates) => _rates = rates);
   }

@@ -1,5 +1,6 @@
 import 'package:exchangecalculator/Util/currency_dialog.dart';
 import 'package:exchangecalculator/Util/neu_currency_button.dart';
+import 'package:exchangecalculator/Util/neu_icon_button.dart';
 import 'package:exchangecalculator/models/currency.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,48 +21,66 @@ class CalculatorPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Spacer(),
-            ButtonRow(children: [
-              NeuCurrencyButton(
-                currency: calculator.baseCurrency,
-                onPressed: () {
-                  CurrencyDialog().showCurrencyDialog(context)
-                      .then((currency) {
-                        if (currency != null) {
-                          calculator.changeBaseCurrency(currency);
-                        }
-                  });
-                },
-              ),
-              NeuCalculatorButton(
-                text: calculator.value.toString(),
-                onPressed: null,
-                isPill: true,
-              ),
-            ]),
-            ButtonRow(children: [
-              NeuCurrencyButton(
-                currency: calculator.targetCurrency,
-                onPressed: () {
-                  CurrencyDialog().showCurrencyDialog(context)
-                      .then((currency) {
-                    if (currency != null) {
-                      calculator.changeTargetCurrency(currency);
-                    }
-                  });
-                },
-              ),
-              NeuCalculatorButton(
-                text: calculator.targetValue.toString(),
-                onPressed: null,
-                isPill: true,
-              ),
-            ]),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                NeuIconButton(
+                  icon: Icons.sync,
+                  onPressed: () {
+                    calculator.switchCurrency();
+                  },
+                ),
+                Expanded(
+                  child: Column(
+                    children: <Widget>[
+                      ButtonRow(children: [
+                        NeuCurrencyButton(
+                          currency: calculator.baseCurrency,
+                          onPressed: () {
+                            CurrencyDialog().showCurrencyDialog(context)
+                                .then((currency) {
+                              if (currency != null) {
+                                calculator.changeBaseCurrency(currency);
+                              }
+                            });
+                          },
+                        ),
+                        NeuCalculatorButton(
+                          text: calculator.value.toString(),
+                          onPressed: null,
+                          widthRatio: 3.5,
+                        ),
+                      ]),
+                      ButtonRow(children: [
+                        NeuCurrencyButton(
+                          currency: calculator.targetCurrency,
+                          onPressed: () {
+                            CurrencyDialog().showCurrencyDialog(context)
+                                .then((currency) {
+                              if (currency != null) {
+                                calculator.changeTargetCurrency(currency);
+                              }
+                            });
+                          },
+                        ),
+                        NeuCalculatorButton(
+                          text: calculator.targetValue.toString(),
+                          onPressed: null,
+                          widthRatio: 3.5,
+                        ),
+                      ]),
+                    ],
+                  ),
+                )
+              ],
+            ),
             Expanded(child: SizedBox(height: 150)),
             ButtonRow(children: [
               NeuCalculatorButton(
                 text: calculator.value.toString(),
                 onPressed: null,
-                isPill: true,
+                widthRatio: 3.9,
               ),
               NeuCalculatorButton(
                 text: 'AC',
