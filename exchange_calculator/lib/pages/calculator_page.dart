@@ -9,7 +9,24 @@ import 'package:exchangecalculator/Util/neu_calculator_button.dart';
 import 'package:exchangecalculator/Util/neumorphic_theme.dart';
 import 'package:provider/provider.dart';
 
-class CalculatorPage extends StatelessWidget {
+class CalculatorPage extends StatefulWidget {
+  @override
+  _CalculatorPageState createState() => _CalculatorPageState();
+}
+
+class _CalculatorPageState extends State<CalculatorPage> {
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future<void>.delayed(Duration.zero).then((_) {
+        Provider.of<Calculator>(context, listen: false).initCurrency();
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final calculator = Provider.of<Calculator>(context);

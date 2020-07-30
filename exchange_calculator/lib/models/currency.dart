@@ -247,4 +247,77 @@ extension CurrencyModel on Currency {
         return 'assets/national_flag/southAfrica.svg';
     }
   }
+
+  static Currency unitToCurrency(String unit) {
+    switch(unit) {
+      case 'AUD':
+        return Currency.AUD;
+      case 'BGN':
+        return Currency.BGN;
+      case 'BRL':
+        return Currency.BRL;
+      case 'CAD':
+        return Currency.CAD;
+      case 'CHF':
+        return Currency.CHF;
+      case 'CNY':
+        return Currency.CNY;
+      case 'CZK':
+        return Currency.CZK;
+      case 'DKK':
+        return Currency.DKK;
+      case 'EUR':
+        return Currency.EUR;
+      case 'GBP':
+        return Currency.GBP;
+      case 'HKD':
+        return Currency.HKD;
+      case 'HRK':
+        return Currency.HRK;
+      case 'HUF':
+        return Currency.HUF;
+      case 'IDR':
+        return Currency.IDR;
+      case 'ILS':
+        return Currency.ILS;
+      case 'INR':
+        return Currency.INR;
+      case 'ISK':
+        return Currency.ISK;
+      case 'JPY':
+        return Currency.JPY;
+      case 'KRW':
+        return Currency.KRW;
+      case 'MXN':
+        return Currency.MXN;
+      case 'MYR':
+        return Currency.MYR;
+      case 'NOK':
+        return Currency.NOK;
+      case 'NZD':
+        return Currency.NZD;
+      case 'PHP':
+        return Currency.PHP;
+      case 'PLN':
+        return Currency.PLN;
+      case 'RON':
+        return Currency.RON;
+      case 'RUB':
+        return Currency.RUB;
+      case 'SEK':
+        return Currency.SEK;
+      case 'SGD':
+        return Currency.SGD;
+      case 'THB':
+        return Currency.THB;
+      case 'TRY':
+        return Currency.TRY;
+      case 'USD':
+        return Currency.USD;
+      case 'ZAR':
+        return Currency.ZAR;
+      default:
+        return Currency.JPY;
+    }
+  }
 }

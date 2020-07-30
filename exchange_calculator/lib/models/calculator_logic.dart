@@ -4,6 +4,7 @@ import 'package:exchangecalculator/models/currency.dart';
 import 'package:exchangecalculator/models/get_rates_model.dart';
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Calculator extends ChangeNotifier {
   num _value = 0;
@@ -19,9 +20,20 @@ class Calculator extends ChangeNotifier {
   Currency get targetCurrency => _targetCurrency;
   num _targetValue = 0;
   num get targetValue => _targetValue;
+  String baseCurrencyKey = 'baseCurrency';
+  String targetCurrencyKey = 'targetCurrency';
+
+  void initCurrency() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    _baseCurrency = CurrencyModel.unitToCurrency(await prefs.get(baseCurrencyKey) as String);
+    _targetCurrency = CurrencyModel.unitToCurrency(await prefs.get(targetCurrencyKey) as String);
+    notifyListeners();
+  }
 
   void changeBaseCurrency(Currency currency) async {
     _baseCurrency = currency;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(baseCurrencyKey, currency.unit);
 
     await getRates(currency).then((rates) => _rates = rates);
     _targetValue = _value * _rates.ratesFromCurrency(_targetCurrency);
@@ -34,6 +46,8 @@ class Calculator extends ChangeNotifier {
     final tempTargetCurrency = _targetCurrency;
 
     _targetCurrency = tempBaseCurrency;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(targetCurrencyKey, tempBaseCurrency.unit);
     changeBaseCurrency(tempTargetCurrency);
   }
 
@@ -56,8 +70,10 @@ class Calculator extends ChangeNotifier {
     });
   }
 
-  void changeTargetCurrency(Currency currency) {
+  void changeTargetCurrency(Currency currency) async {
     _targetCurrency = currency;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(targetCurrencyKey, currency.unit);
     notifyListeners();
   }
 
