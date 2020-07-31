@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "757971432224",
+    "firebase_url": "https://exchange-calculator.firebaseio.com",
+    "project_id": "exchange-calculator",
+    "storage_bucket": "exchange-calculator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757971432224:android:5e7d493e9921b583ac9d45",
+        "android_client_info": {
+          "package_name": "com.tetsukick.exchangecalculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757971432224-tqc6ajsq27ei9qq30pkdmbmceumsd6hu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBioh9r0-baw0uR-AiYrjVS_gEBfhxIvmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757971432224-tqc6ajsq27ei9qq30pkdmbmceumsd6hu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "757971432224-6bin584hfpmtl1iedf5l1mgjr97dd6la.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tetsukick.exchangecalculator"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
