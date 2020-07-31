@@ -55,7 +55,7 @@ android {
         release {
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
+            storeFile file("/Users/teppei.kikuchi/internal_document/Android/keystores/exchange_calculator/key.jks")
             storePassword keystoreProperties['storePassword']
         }
     }
@@ -63,8 +63,8 @@ android {
         release {
             signingConfig signingConfigs.release
 
-            minifyEnabled false
-            useProguard false
+            minifyEnabled true
+            shrinkResources true
         }
     }
 }
