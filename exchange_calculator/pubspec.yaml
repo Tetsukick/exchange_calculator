@@ -23,24 +23,24 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  transparent_image: ^1.0.0
-  math_expressions: ^2.0.0
-  pedantic_mono: ^1.9.1
-  provider: ^4.1.3
+  transparent_image:
+  math_expressions:
+  pedantic_mono:
+  provider:
   equatable:
-  state_notifier: ^0.5.0
-  flutter_state_notifier: ^0.4.2
+  state_notifier:
+  flutter_state_notifier:
   freezed_annotation:
-  simple_logger: ^1.7.0
-  auto_size_text: ^2.1.0
-  dio: ^3.0.9
-  flutter_svg: ^0.17.4
-  shared_preferences: ^0.5.8
-  firebase_core: ^0.2.5
-  firebase_analytics: ^1.0.4
+  simple_logger:
+  auto_size_text:
+  dio:
+  flutter_svg: ^0.18.0
+  shared_preferences:
+  firebase_core:
+  firebase_analytics:
   firebase_performance:
   firebase_crashlytics:
-  admob_flutter: ^1.0.0-beta.5
+  analyzer: ^0.39.14
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -51,7 +51,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable:
-  build_runner:
+  build_runner: ^1.10.0
   freezed:
   flutter_launcher_icons: ^0.7.5
 
