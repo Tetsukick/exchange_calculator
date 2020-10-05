@@ -1,13 +1,12 @@
 import 'package:exchangecalculator/Util/currency_dialog.dart';
 import 'package:exchangecalculator/Util/neu_currency_button.dart';
 import 'package:exchangecalculator/Util/neu_icon_button.dart';
-import 'package:exchangecalculator/models/currency.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:exchangecalculator/models/calculator_logic.dart';
 import 'package:exchangecalculator/Util/neu_calculator_button.dart';
 import 'package:exchangecalculator/Util/neumorphic_theme.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 class CalculatorPage extends StatefulWidget {
   @override
@@ -15,6 +14,8 @@ class CalculatorPage extends StatefulWidget {
 }
 
 class _CalculatorPageState extends State<CalculatorPage> {
+
+  final _numbetFormat = NumberFormat.decimalPattern('en_us');
 
   @override
   void initState() {
@@ -64,7 +65,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                           },
                         ),
                         NeuCalculatorButton(
-                          text: calculator.value.toString(),
+                          text: _numbetFormat.format(calculator.value),
                           onPressed: null,
                           widthRatio: 3.5,
                         ),
@@ -82,7 +83,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                           },
                         ),
                         NeuCalculatorButton(
-                          text: calculator.targetValue.toString(),
+                          text: _numbetFormat.format(calculator.targetValue),
                           onPressed: null,
                           widthRatio: 3.5,
                         ),
@@ -95,7 +96,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
             Expanded(child: SizedBox(height: 150)),
             ButtonRow(children: [
               NeuCalculatorButton(
-                text: calculator.value.toString(),
+                text: _numbetFormat.format(calculator.value),
                 onPressed: null,
                 widthRatio: 3.9,
               ),
