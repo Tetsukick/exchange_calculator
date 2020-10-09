@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:exchangecalculator/Util/currency_dialog.dart';
 import 'package:exchangecalculator/Util/neu_currency_button.dart';
 import 'package:exchangecalculator/Util/neu_icon_button.dart';
@@ -7,6 +8,8 @@ import 'package:exchangecalculator/Util/neu_calculator_button.dart';
 import 'package:exchangecalculator/Util/neumorphic_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+
+import '../main.dart';
 
 class CalculatorPage extends StatefulWidget {
   @override
@@ -221,7 +224,14 @@ class _CalculatorPageState extends State<CalculatorPage> {
             ),
             SizedBox(
               height: MediaQuery.of(context).padding.bottom,
-            )
+            ),
+            Container(
+              height: 50,
+              child: AdmobBanner(
+                adUnitId: getBannerAdUnitId(),
+                adSize: AdmobBannerSize.LEADERBOARD,
+              ),
+            ),
           ],
         ),
       ),

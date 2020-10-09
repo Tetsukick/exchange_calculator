@@ -10,6 +10,9 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="両替電卓"
         android:icon="@mipmap/ic_launcher">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8604906384604870~2693092896"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

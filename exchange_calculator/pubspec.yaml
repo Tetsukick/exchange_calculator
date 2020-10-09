@@ -40,6 +40,7 @@ dependencies:
   firebase_analytics:
   firebase_performance:
   firebase_crashlytics:
+  admob_flutter:
   analyzer: ^0.39.14
 
   # The following adds the Cupertino Icons font to your application.
