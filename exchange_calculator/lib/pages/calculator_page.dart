@@ -16,6 +16,7 @@ class CalculatorPage extends StatefulWidget {
 class _CalculatorPageState extends State<CalculatorPage> {
 
   final _numbetFormat = NumberFormat.decimalPattern('en_us');
+  bool isLightMode = true;
 
   @override
   void initState() {
@@ -32,7 +33,10 @@ class _CalculatorPageState extends State<CalculatorPage> {
   Widget build(BuildContext context) {
     final calculator = Provider.of<Calculator>(context);
     calculator.setInitialRates(calculator.baseCurrency);
+    isLightMode = MediaQuery.platformBrightnessOf(context) == Brightness.light;
+
     return Material(
+      color: isLightMode ? kBackgroundColour : kDarkBackgroundColour,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Column(
@@ -55,6 +59,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       ButtonRow(children: [
                         NeuCurrencyButton(
                           currency: calculator.baseCurrency,
+                          textColor: isLightMode ? textBlack : textWhite,
                           onPressed: () {
                             CurrencyDialog().showCurrencyDialog(context)
                                 .then((currency) {
@@ -66,6 +71,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                         ),
                         NeuCalculatorButton(
                           text: _numbetFormat.format(calculator.value),
+                          textColor: isLightMode ? textBlack : textWhite,
                           onPressed: null,
                           widthRatio: 3.5,
                         ),
@@ -73,6 +79,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       ButtonRow(children: [
                         NeuCurrencyButton(
                           currency: calculator.targetCurrency,
+                          textColor: isLightMode ? textBlack : textWhite,
                           onPressed: () {
                             CurrencyDialog().showCurrencyDialog(context)
                                 .then((currency) {
@@ -84,6 +91,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                         ),
                         NeuCalculatorButton(
                           text: _numbetFormat.format(calculator.targetValue),
+                          textColor: isLightMode ? textBlack : textWhite,
                           onPressed: null,
                           widthRatio: 3.5,
                         ),
@@ -97,6 +105,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
             ButtonRow(children: [
               NeuCalculatorButton(
                 text: _numbetFormat.format(calculator.value),
+                textColor: isLightMode ? textBlack : textWhite,
                 onPressed: null,
                 widthRatio: 3.9,
               ),
@@ -110,14 +119,17 @@ class _CalculatorPageState extends State<CalculatorPage> {
               children: [
                 NeuCalculatorButton(
                   text: '7',
+                  textColor: isLightMode ? textBlack : textWhite,
                   onPressed: () => calculator.setValue(7),
                 ),
                 NeuCalculatorButton(
                   text: '8',
+                  textColor: isLightMode ? textBlack : textWhite,
                   onPressed: () => calculator.setValue(8),
                 ),
                 NeuCalculatorButton(
                   text: '9',
+                  textColor: isLightMode ? textBlack : textWhite,
                   onPressed: () => calculator.setValue(9),
                 ),
                 NeuCalculatorButton(
@@ -133,14 +145,17 @@ class _CalculatorPageState extends State<CalculatorPage> {
               children: [
                 NeuCalculatorButton(
                   text: '4',
+                  textColor: isLightMode ? textBlack : textWhite,
                   onPressed: () => calculator.setValue(4),
                 ),
                 NeuCalculatorButton(
                   text: '5',
+                  textColor: isLightMode ? textBlack : textWhite,
                   onPressed: () => calculator.setValue(5),
                 ),
                 NeuCalculatorButton(
                   text: '6',
+                  textColor: isLightMode ? textBlack : textWhite,
                   onPressed: () => calculator.setValue(6),
                 ),
                 NeuCalculatorButton(
@@ -155,14 +170,17 @@ class _CalculatorPageState extends State<CalculatorPage> {
               children: [
                 NeuCalculatorButton(
                   text: '1',
+                  textColor: isLightMode ? textBlack : textWhite,
                   onPressed: () => calculator.setValue(1),
                 ),
                 NeuCalculatorButton(
                   text: '2',
+                  textColor: isLightMode ? textBlack : textWhite,
                   onPressed: () => calculator.setValue(2),
                 ),
                 NeuCalculatorButton(
                   text: '3',
+                  textColor: isLightMode ? textBlack : textWhite,
                   onPressed: () => calculator.setValue(3),
                 ),
                 NeuCalculatorButton(
@@ -178,10 +196,12 @@ class _CalculatorPageState extends State<CalculatorPage> {
               children: [
                 NeuCalculatorButton(
                   text: '0',
+                  textColor: isLightMode ? textBlack : textWhite,
                   onPressed: () => calculator.setValue(0),
                 ),
                 NeuCalculatorButton(
                   text: '.',
+                  textColor: isLightMode ? textBlack : textWhite,
                   onPressed: () {},
                 ),
                 NeuCalculatorButton(

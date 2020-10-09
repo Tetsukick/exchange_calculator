@@ -86,7 +86,7 @@ class _NeuIconButtonState extends State<NeuIconButton> {
               alignment: Alignment(widget.isPill ? 0.8 : 0, 0),
               child: Icon(
                 widget.icon,
-                color: Theme.of(context).textTheme.bodyText1.color,
+                color: neumorphicTheme.isDark ? textWhite : textBlack,
               ),
             ),
           ],

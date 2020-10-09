@@ -33,6 +33,8 @@ final lightNeumorphicTheme = NeumorphicTheme(
   outerShadow: kShadow,
 );
 
+final textWhite = Colors.white;
+final textBlack = Colors.black87;
 final kBackgroundColour = Color.fromRGBO(239, 238, 238, 1);
 final kOrange = Color.fromRGBO(238, 134, 48, 1); // rgb(238, 134, 48)
 final kRed = Color.fromRGBO(255, 50, 0, 1); // rgb(238, 134, 48)
